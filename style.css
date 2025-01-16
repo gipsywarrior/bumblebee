@@ -94,15 +94,21 @@ img {
 /* Container y portada */
 
 .container {
+    position: relative;
     width: 680px;
     height: 680px;
     background: var(--base);
     border: 1px solid #5b3f4f;
+    overflow: hidden;
 }
 
 .first-block {
+    position: relative;
     width: 680px;
     height: 680px;
+    background: var(--base);
+    cursor: pointer;
+    z-index: 5;
 }
 
 .cover {
@@ -255,18 +261,8 @@ img {
     transform: translateY(-10px);
 }
 
-/* Contenido */
-
-/* Estas clases ocultan algunas partes del code
-para trabajar sobre otros */
-
-.first-block {
-    display: none;
-}
-
-/* Fin de clases de prueba */
-
 .second-block {
+    position: relative;
     width: 680px;
     height: 680px;
 }
@@ -567,6 +563,7 @@ para trabajar sobre otros */
 .bitacora .body h2 {
     font-family: 'Amarante';
     font-size: 36px;
+    color: var(--title);
     text-align: center;
     text-transform: uppercase;
 }
@@ -591,6 +588,7 @@ para trabajar sobre otros */
 
 .historial h2 {
     font-family: 'Amarante';
+    color: var(--title);
     font-size: 46px;
     text-align: center;
     text-transform: uppercase;
@@ -603,7 +601,6 @@ para trabajar sobre otros */
     background: var(--box4);
     border: 1px solid var(--white);
     box-sizing: border-box;
-    padding: 30px;
 }
 
 .historial .body::before {
@@ -634,4 +631,68 @@ para trabajar sobre otros */
 .historial .ornaments .sparkle.right {
     right: 0;
     margin-right: -24px;
+}
+
+.data-container {
+    width: 470px;
+    height: 370px;
+    overflow: auto;
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+/* Formato sheet historial */
+
+.sheet-content p {
+    margin-bottom: 15px;
+}
+
+.sheet-content a {
+    color: #ca8db8;
+    text-decoration: none !important;
+    transition: 0.2s;
+}
+
+.sheet-content a:hover {
+    color: white;
+}
+
+.sheet-content .bold {
+    font-weight: bold;
+}
+
+.sheet-content .italic {
+    font-style: italic;
+}
+
+.sheet-content p:first-of-type {
+    display: none;
+}
+
+/* Botón volver */
+.top-hover {
+    top: 0;
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    cursor: pointer;
+}
+
+.chevron {
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    border-radius: 100%;
+    background: var(--button);
+    border: 1px solid var(--white);
+    margin-top: -120px;
+    transition: 0.3s;
+}
+
+.top-hover:hover .chevron {
+    margin-top: 35px;
 }

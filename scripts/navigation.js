@@ -7,6 +7,7 @@ const buttons = document.querySelectorAll('.button');
 const hoverSound = new Audio('sfx/hover.mp3');
 const clickSound = new Audio('sfx/click.mp3');
 const switchSound = new Audio('sfx/littleclick.mp3');
+const bigClickSound = new Audio('sfx/bigclick.mp3');
 
 // Scroll
 sectionsContainer.style.scrollBehavior = 'smooth';
@@ -53,6 +54,32 @@ buttons.forEach(button => {
     });
 });
 
+/* Navegación portada-contenido */
+
+// Navegación portada-contenido
+const firstBlock = document.querySelector('.first-block');
+const blockColumn = document.querySelector('.block-column');
+const topHover = document.querySelector('.top-hover');
+
+firstBlock.addEventListener('click', () => {
+    const blockHeight = firstBlock.offsetHeight;
+    
+    bigClickSound.currentTime = 0;
+    bigClickSound.play();
+    
+    blockColumn.style.transition = 'transform 0.55s ease';
+    blockColumn.style.transform = `translateY(-${blockHeight}px)`;
+});
+
+topHover.addEventListener('click', () => {
+    const blockHeight = firstBlock.offsetHeight;
+    
+    bigClickSound.currentTime = 0;
+    bigClickSound.play();
+    
+    blockColumn.style.transition = 'transform 0.55s ease';
+    blockColumn.style.transform = `translateY(0)`;
+});
 
 // Script de datos/stats
 document.addEventListener('DOMContentLoaded', () => {
