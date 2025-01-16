@@ -80,29 +80,3 @@ topHover.addEventListener('click', () => {
     blockColumn.style.transition = 'transform 0.55s ease';
     blockColumn.style.transform = `translateY(0)`;
 });
-
-// Script de datos/stats
-document.addEventListener('DOMContentLoaded', () => {
-    const switchButton = document.querySelector('.switch');
-    const statsElement = document.querySelector('.informacion-basica .stats');
-    const dataContent = document.querySelectorAll('.informacion-basica .data span:not(.stats)');
-
-    if (switchButton && statsElement && dataContent) {
-        switchButton.addEventListener('click', () => {
-            switchSound.currentTime = 0;
-            switchSound.play();
-            
-            const isShowingStats = getComputedStyle(statsElement).display === 'flex';
-            
-            if (isShowingStats) {
-                statsElement.style.display = 'none';
-                dataContent.forEach(span => span.style.display = 'block');
-                switchButton.textContent = 'Stats';
-            } else {
-                statsElement.style.display = 'flex';
-                dataContent.forEach(span => span.style.display = 'none');
-                switchButton.textContent = 'Datos';
-            }
-        });
-    }
-});

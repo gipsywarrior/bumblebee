@@ -81,7 +81,7 @@ async function cargarDatosBasicos() {
         const tablas = documento.querySelectorAll('table');
         
         if (tablas && tablas.length > 1) {
-            const tablaDatosBasicos = tablas[1]; // Segunda tabla
+            const tablaDatosBasicos = tablas[1];
             const contenidoHTML = Array.from(tablaDatosBasicos.querySelectorAll('tr'))
                 .map(fila => {
                     const celdas = fila.querySelectorAll('td');
@@ -93,11 +93,30 @@ async function cargarDatosBasicos() {
                 .join('');
             
             const dataContainer = document.querySelector('.informacion-basica .data');
+            const statsDiv = document.querySelector('.informacion-basica .stats');
+            const switchButton = document.querySelector('.switch');
+            
             if (dataContainer) {
-                const statsDiv = dataContainer.querySelector('.stats');
-                dataContainer.innerHTML = contenidoHTML;
-                if (statsDiv) {
-                    dataContainer.appendChild(statsDiv);
+                // Guardar el estado actual
+                const isShowingStats = statsDiv && getComputedStyle(statsDiv).display === 'flex';
+                const currentButtonText = switchButton ? switchButton.textContent : 'Stats';
+                
+                // Actualizar contenido manteniendo el div de stats
+                const statsContent = statsDiv ? statsDiv.outerHTML : '';
+                dataContainer.innerHTML = contenidoHTML + statsContent;
+                
+                // Restaurar el estado
+                const newStatsDiv = dataContainer.querySelector('.stats');
+                const newDataSpans = dataContainer.querySelectorAll('span:not(.stats)');
+                
+                if (isShowingStats) {
+                    if (newStatsDiv) newStatsDiv.style.display = 'flex';
+                    newDataSpans.forEach(span => span.style.display = 'none');
+                    if (switchButton) switchButton.textContent = 'Datos';
+                } else {
+                    if (newStatsDiv) newStatsDiv.style.display = 'none';
+                    newDataSpans.forEach(span => span.style.display = 'block');
+                    if (switchButton) switchButton.textContent = currentButtonText;
                 }
             }
         }
@@ -105,6 +124,33 @@ async function cargarDatosBasicos() {
         console.error('Error al cargar datos básicos:', error);
     }
 }
+
+// Switch datos/stats
+document.addEventListener('DOMContentLoaded', () => {
+    const switchButton = document.querySelector('.switch');
+    
+    if (switchButton) {
+        switchButton.addEventListener('click', () => {
+            switchSound.currentTime = 0;
+            switchSound.play();
+            
+            const statsElement = document.querySelector('.informacion-basica .stats');
+            const dataSpans = document.querySelectorAll('.informacion-basica .data span:not(.stats)');
+            
+            const isShowingStats = statsElement && getComputedStyle(statsElement).display === 'flex';
+            
+            if (isShowingStats) {
+                if (statsElement) statsElement.style.display = 'none';
+                dataSpans.forEach(span => span.style.display = 'block');
+                switchButton.textContent = 'Stats';
+            } else {
+                if (statsElement) statsElement.style.display = 'flex';
+                dataSpans.forEach(span => span.style.display = 'none');
+                switchButton.textContent = 'Datos';
+            }
+        });
+    }
+});
 
 // Inicialización
 window.onload = () => {
