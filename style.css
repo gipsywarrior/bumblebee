@@ -1,0 +1,637 @@
+/*
+Instrucciones
+- Al body sacale el padding y el background antes de usar
+*/
+
+/* Fuentes*/
+@font-face {
+    font-family: Aqila;
+    src: url(/fonts/Aqila.ttf);
+}
+
+/* Raíz */
+
+:root {
+    --base: #3A2431;
+    --white: #E7D6F0;
+    --title: #D4BEDC;
+    --button: #3F2B39;
+    --accent: #574451;
+    --accent2: #4f3b49;
+    --box1: #422E3C;
+    --box2: #3F2B39;
+    --box3: #392330;
+    --box4: #37202d;
+
+    --box1a: #3E2937;
+    --box1f: #3D2936;
+
+    --placeholder: #594557;
+}
+
+body *::-webkit-scrollbar {
+    width: 8px;
+}
+
+body *::-webkit-scrollbar-thumb {
+    background-color: var(--accent);
+    border-radius: 20px;
+}
+
+
+body {
+    background: #0f0f0f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 100px;
+    font-family: 'Asul';
+    color: var(--white);
+}
+
+img {
+    pointer-events: none;
+}
+
+::-moz-selection {
+    color: white;
+    background: #240c1b36;
+}
+
+::selection {
+    color: white;
+    background: #240c1b36;
+}
+
+/* Clases especiales */
+
+.centers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.column {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.absolute-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/* Container y portada */
+
+.container {
+    width: 680px;
+    height: 680px;
+    background: var(--base);
+    border: 1px solid #5b3f4f;
+}
+
+.first-block {
+    width: 680px;
+    height: 680px;
+}
+
+.cover {
+    position: relative;
+    width: 636px;
+    height: 636px;
+    background: var(--box1);
+    box-shadow: inset 0 0 0 1px var(--white);
+    overflow: hidden;
+}
+
+.cover::before {
+    content:'';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(/img/fondobox1.png);
+    opacity: 2%;
+    mix-blend-mode: hard-light;
+}
+
+.corners .corner {
+    position: absolute;
+    width: 73px;
+    height: 73px;
+    background: var(--base);
+    border-radius: 100%;
+    border: 1px solid var(--white);
+    margin: -35px;
+}
+
+.corner.tr {
+    right: 0;
+    opacity: 1;
+}
+
+.corner.bl {
+    bottom: 0;
+}
+
+.corner.br {
+    bottom: 0;
+    right: 0;
+    opacity: 1;
+}
+
+.cover .box {
+    width: 530px;
+    height: 530px;
+    border: 1px solid var(--white);
+    position: relative;
+}
+
+.ornaments {
+    pointer-events: none;
+}
+
+.ornaments object {
+    position: absolute;
+}
+
+.ornaments .romboid.top {
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: -11px;
+}
+
+.ornaments .romboid.bottom {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    margin-bottom: -11px;
+}
+
+.ornaments .romboid.left {
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    margin-left: -11px;
+}
+
+.ornaments .romboid.right {
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    margin-right: -11px;
+}
+
+.ornaments .sparkle {
+    margin: -24px;
+}
+
+.ornaments .sparkle.tr {
+    right: 0;
+}
+
+.ornaments .sparkle.bl {
+    bottom: 0;
+}
+
+.ornaments .sparkle.br {
+    bottom: 0;
+    right: 0;
+}
+
+
+.box-subcontainer .title {
+    flex: 1;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.box-subcontainer .title h1 {
+    font-family: 'Aqila';
+    font-size: 83.8px;
+    margin-left: -2px;
+    color: var(--box1f);
+    text-shadow: 0 1px var(--white), 1px 0 var(--white), -1px 0 var(--white), 0 -1px var(--white)
+}
+
+.box-subcontainer .motif {
+    background: var(--box1a);
+    height: 153px;
+    border-top: 1px solid var(--white);
+}
+
+.box-subcontainer .motif img {
+    margin: -4px;
+}
+
+.big-pic-container, .ornaments {
+    pointer-events: none;
+}
+
+.big-pic {
+    width: 190px;
+    height: 310px;
+    border-radius: 100px;
+    margin-top: 80px;
+    background: var(--placeholder);
+    border: 1px solid var(--white);
+    transition: 0.3s;
+    pointer-events: all;
+}
+
+.big-pic:hover {
+    transform: translateY(-10px);
+}
+
+/* Contenido */
+
+/* Estas clases ocultan algunas partes del code
+para trabajar sobre otros */
+
+.first-block {
+    display: none;
+}
+
+/* Fin de clases de prueba */
+
+.second-block {
+    width: 680px;
+    height: 680px;
+}
+
+.content {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    box-shadow: inset 0 0 0 1px var(--white);
+    overflow: hidden;
+}
+
+.content .corners .corner {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: var(--base);
+    border-radius: 100%;
+    border: 1px solid var(--white);
+    margin: -45px;
+}
+
+.content-body {
+    position: relative;
+    width: 560px;
+    height: 560px;
+    border: 1px solid var(--white);
+    overflow: hidden; /* Overflow entre secciones */
+}
+
+/* Seccionado */
+
+.sections {
+    display: flex;
+    flex-direction: row;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+
+.section {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+
+.section {
+    scroll-snap-align: start;
+    min-width: 100%;
+}
+
+/* Botones */
+
+.buttons {
+    position: absolute;
+    width: 485px;
+    height: 51px;
+    margin-top: 580px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    z-index: 2
+}
+
+.button {
+    width: 51px;
+    height: 100%;
+    background: var(--button);
+    border: 1px solid var(--white);
+    border-radius: 100%;
+    box-sizing: border-box;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.button object {
+    width: 19px;
+    opacity: 0.9;
+    transition: 0.3s;
+    pointer-events: none;
+}
+
+.button:hover {
+    background: var(--box1f);
+}
+
+.button:hover object {
+    opacity: 1;
+}
+
+.button.active {
+    filter: brightness(1.1) saturate(1.1);
+    pointer-events: none;
+}
+
+/* Información básica */
+
+.informacion-basica .box {
+    width: 465px;
+    height: 450px;
+    border: 1px solid var(--white);
+    background: var(--box2);
+}
+
+.informacion-basica .box::before {
+    content: '';
+    position: absolute;
+    width: 465px;
+    height: 465px;
+    background: url(/img/fondobox2.png);
+    opacity: 1.5%;
+    mix-blend-mode: hard-light;
+}
+
+.informacion-basica .ornaments .sparkle {
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 30px
+}
+
+.informacion-basica .ornaments .sparkle.bottom {
+    bottom: 0;
+    margin-bottom: 30px;
+}
+
+.informacion-basica .body {
+    width: 333px;
+    height: initial;
+    gap: 20px;
+    z-index: 2;
+}
+
+.informacion-basica h2 {
+    font-family: 'Amarante';
+    color: var(--title);
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 35.5px;
+}
+
+.informacion-basica .img {
+    width: 100%;
+    height: 160px;
+    flex-grow: 0;
+    background: var(--placeholder);
+    border: 1px solid var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.switch {
+    padding: 10px 20px;
+    background: var(--button);
+    border: 1px solid var(--white);
+    cursor: pointer;
+    transition: 0.2s;
+    border-radius: 100px;
+    margin-bottom: -160px;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.switch:hover {
+    filter: brightness(1.05)
+}
+
+.informacion-basica .data {
+    margin-top: 10px;
+    height: 111px;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+.informacion-basica .data span {
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.219);
+    margin-right: 10px;
+    display: block;
+}
+
+.informacion-basica .data b {
+    font-weight: bold;
+}
+
+.informacion-basica .stats {
+    display: none;
+    flex-direction: column;
+    padding: 18px;
+}
+
+.stats {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.stats .row div {
+    border: 1px solid var(--white);
+    padding: 10px;
+    background: var(--accent2);
+}
+
+.stats .row div:first-child {
+    border-right: 0;
+}
+
+.stats .row:nth-of-type(1) div:last-child {
+    border-left: 0;
+}
+
+.stats .row:nth-of-type(2) div {
+    border-top: 0;
+}
+
+.data {
+    display: flex;
+}
+
+.stats {
+    display: none;
+}
+
+/* Bitácora */
+
+.bitacora .box {
+    gap: 34px;
+    overflow: hidden;
+}
+
+.bitacora .img {
+    position: relative;
+    width: 162px;
+    height: 350px;
+    background: var(--placeholder);
+    border: 1px solid var(--white);
+    border-radius: 100px;
+}
+
+.bitacora .img::before {
+    content: "";
+    display: block;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: -100%;
+    width: 1px;
+    height: 162px;
+    background: var(--white);
+}
+
+.bitacora .img::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -162px;
+    margin: auto;
+    width: 1px;
+    height: 162px;
+    background: var(--white);
+}
+
+.bitacora .body {
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    width: 264px;
+    height: 432px;
+    background: var(--box3);
+    border: 1px solid var(--white);
+    padding: 15px;
+    padding-top: 38px;
+    gap: 25px;
+    box-sizing: border-box;
+}
+
+.bitacora .body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(/img/fondobox3.png);
+    opacity: 1%;
+    mix-blend-mode: hard-light;
+    pointer-events: none;
+}
+
+.bitacora .body h2 {
+    font-family: 'Amarante';
+    font-size: 36px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.bitacora .body h3 {
+    width: fit-content;
+    background: #ffffff15;
+    border: 1px solid var(--white);
+    padding: 12px 20px;
+    align-self: center;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Historial */
+
+.historial .box {
+    gap: 18px;
+}
+
+.historial h2 {
+    font-family: 'Amarante';
+    font-size: 46px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.historial .body {
+    position: relative;
+    width: 472px;
+    height: 372px;
+    background: var(--box4);
+    border: 1px solid var(--white);
+    box-sizing: border-box;
+    padding: 30px;
+}
+
+.historial .body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(/img/fondobox4.png);
+    opacity: 1%;
+    mix-blend-mode: hard-light;
+    pointer-events: none;
+}
+
+.historial .ornaments {
+    left: 0;
+    top: 0;
+}
+
+.historial .ornaments .sparkle {
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    margin-left: -24px;
+}
+
+.historial .ornaments .sparkle.right {
+    right: 0;
+    margin-right: -24px;
+}

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="sheet.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amarante&family=Asul:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="first-block centers">
+            <div class="cover centers">
+                <div class="corners absolute-box">
+                    <div class="corner tl"></div>
+                    <div class="corner tr"></div>
+                    <div class="corner bl"></div>
+                    <div class="corner br"></div>
+                </div>
+                <div class="box">
+                    <div class="ornaments absolute-box">
+                        <object data="/svg/romboid.svg" class="romboid top"></object>
+                        <object data="/svg/romboid.svg" class="romboid right"></object>
+                        <object data="/svg/romboid.svg" class="romboid bottom"></object>
+                        <object data="/svg/romboid.svg" class="romboid left"></object>
+                        <object data="/svg/sparkle.svg" class="sparkle tl"></object>
+                        <object data="/svg/sparkle.svg" class="sparkle tr"></object>
+                        <object data="/svg/sparkle.svg" class="sparkle bl"></object>
+                        <object data="/svg/sparkle.svg" class="sparkle br"></object>
+                    </div>
+                    <div class="big-pic-container absolute-box centers">
+                        <div class="big-pic"></div>
+                    </div>
+                    <div class="box-subcontainer column">
+                        <div class="title">
+                            <h1>Artemis</h1>
+                            <h1>Elderwood</h1>
+                        </div>
+                        <div class="motif">
+                            <img src="/img/moons.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="second-block centers">
+            <div class="content centers">
+                <div class="corners absolute-box">
+                    <div class="corner tl"></div>
+                    <div class="corner tr"></div>
+                    <div class="corner bl"></div>
+                    <div class="corner br"></div>
+                </div>
+                <div class="content-body">
+                    <div class="sections row">
+                        <div class="section informacion-basica centers">
+                            <div class="box centers">
+                                <div class="ornaments absolute-box">
+                                    <object data="/svg/sparkle.svg" class="sparkle top"></object>
+                                    <object data="/svg/sparkle.svg" class="sparkle bottom"></object>
+                                </div>
+                                <div class="body column">
+                                    <h2>Información básica</h2>
+                                    <div class="img">
+                                        <div class="switch">
+                                            Stats
+                                        </div>
+                                    </div>
+                                    <div class="data column">
+                                        <span><b>Lorem:</b> Lorem ipsum</span>
+                                        <span><b>Lorem:</b> Lorem ipsum</span>
+                                        <span><b>Lorem:</b> Lorem ipsum</span>
+                                        <span><b>Lorem:</b> Lorem ipsum</span>
+                                        <span><b>Lorem:</b> Lorem ipsum</span>
+                                        <div class="stats">
+                                            <div class="row centers">
+                                                <div>
+                                                    <em>450</em>
+                                                    VIT
+                                                </div>
+                                                <div>
+                                                    <em>250</em>
+                                                    EN
+                                                </div>
+                                                <div>
+                                                    <em>50</em>
+                                                    PM
+                                                </div>
+                                            </div>
+                                            <div class="row centers">
+                                                <div>
+                                                    <em>1</em>
+                                                    VOL
+                                                </div>
+                                                <div>
+                                                    <em>3</em>
+                                                    VEL
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="section bitacora">
+                            <div class="box row centers">
+                                <div>
+                                    <div class="img">
+                                        <div class="ornaments absolute-box">
+                                            <object data="/svg/romboid.svg" class="romboid right"></object>
+                                            <object data="/svg/romboid.svg" class="romboid left"></object>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="body">
+                                        <h2>Bitácora</h2>
+                                        <h3>Habilidades</h3>
+                                        <ul>
+                                            <li>[Lorem Ipsum] Lorem ipsum</li>
+                                            <li>[Lorem Ipsum] Lorem ipsum</li>
+                                            <li>[Lorem Ipsum] Lorem ipsum</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="section historial">
+                            <div class="box column centers">
+                                <h2>Historial de acciones</h2>
+                                <div class="body">
+                                    <div class="ornaments absolute-box">
+                                        <object data="/svg/sparkle.svg" class="sparkle left"></object>
+                                        <object data="/svg/sparkle.svg" class="sparkle right"></object>
+                                    </div>
+                                    <div id="sheet-data"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons">
+                <div class="button centers" id="informacion-basica">
+                    <object data="/svg/user.svg"></object>
+                </div>
+                <div class="button centers" id="bitacora">
+                    <object data="/svg/book.svg"></object>
+                </div>
+                <div class="button centers" id="historial">
+                    <object data="/svg/hourglass.svg"></object>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/scripts/navigation.js"></script>
+    <script src="/scripts/historial.js"></script>
+</body>
+</html>
