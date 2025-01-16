@@ -1,6 +1,7 @@
+// URL de la hoja de cálculo
 const URL_HOJA = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSRuJJvaYFIAMYl3T8DK_hXCc7qb_Zz63o4uvqBHR0sfAArtsExFKtcxVKvmr4WbXLQsgI1TVniuVHy/pubhtml';
 
-// Función para procesar celdas del historial
+// Procesar celdas del historial
 function procesarCeldaHistorial(celda, indice, celdas) {
     if (!celda.textContent.trim()) return '';
     
@@ -8,6 +9,14 @@ function procesarCeldaHistorial(celda, indice, celdas) {
         .replace(/<td[^>]*>/g, '')
         .replace(/<\/td>/g, '')
         .replace(/style="/g, 'style="display: inline; ');
+    
+    // Verificar si el contenido de la celda comienza con un "-"
+    if (indice === 2 || indice === 3) {
+        const valor = contenido.trim();
+        if (!valor.startsWith('-')) {
+            contenido = `+${valor}`;
+        }
+    }
     
     if (indice !== 1) contenido = `<span class="bold">${contenido}</span>`;
     if (indice === 2) contenido += `<span class="bold"> EXP</span>`;
@@ -24,7 +33,7 @@ function procesarCeldaHistorial(celda, indice, celdas) {
     return contenido;
 }
 
-// Función para procesar celdas de datos básicos
+// Procesar celdas de datos básicos
 function procesarCeldaDatosBasicos(celda, indice) {
     if (!celda.textContent.trim()) return '';
     
@@ -37,7 +46,7 @@ function procesarCeldaDatosBasicos(celda, indice) {
     return '';
 }
 
-// Función para cargar historial
+// Cargar historial
 async function cargarHistorial() {
     try {
         const respuesta = await fetch(`${URL_HOJA}?timestamp=${new Date().getTime()}`);
@@ -71,7 +80,7 @@ async function cargarHistorial() {
     }
 }
 
-// Función para cargar datos básicos
+// Cargar datos básicos
 async function cargarDatosBasicos() {
     try {
         const respuesta = await fetch(`${URL_HOJA}?timestamp=${new Date().getTime()}`);
@@ -163,7 +172,7 @@ async function cargarDatosBasicos() {
     }
 }
 
-// Función para cargar habilidades
+// Cargar habilidades
 async function cargarHabilidades() {
     try {
         const respuesta = await fetch(`${URL_HOJA}?timestamp=${new Date().getTime()}`);
@@ -208,7 +217,6 @@ async function cargarHabilidades() {
         console.error('Error al cargar habilidades:', error);
     }
 }
-
 
 // Switch datos/stats
 document.addEventListener('DOMContentLoaded', () => {

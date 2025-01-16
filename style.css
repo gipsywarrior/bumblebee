@@ -651,6 +651,7 @@ img {
 
 .sheet-content p {
     margin-bottom: 15px;
+    line-height: 1.5;
 }
 
 .sheet-content a {
@@ -672,6 +673,10 @@ img {
 
 .sheet-content p:first-of-type {
     display: none;
+}
+
+.sheet-content .bold:first-of-type {
+    margin-right: 5px;
 }
 
 /* Botón volver */
