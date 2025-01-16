@@ -174,34 +174,41 @@ async function cargarHabilidades() {
         
         if (tablas && tablas.length > 3) {
             const tablaHabilidades = tablas[3];
-            const filas = tablaHabilidades.querySelectorAll('tr');
-            let tituloHTML = '';
-            let listaHTML = '';
+            const filas = Array.from(tablaHabilidades.querySelectorAll('tr'));
             
-            filas.forEach((fila, index) => {
-                const celda = fila.querySelector('td');
-                if (celda && celda.textContent.trim()) {
-                    if (index === 1) {
-                        tituloHTML = `<h3>${celda.textContent.trim()}</h3>`;
-                    } else {
-                        listaHTML += `<li>${celda.textContent.trim()}</li>`;
-                    }
-                }
+            // Extraer encabezados (primera celda de la segunda fila)
+            const encabezados = Array.from(filas[1].querySelectorAll('td')).map(celda => celda.textContent.trim());
+            
+            // Transponer filas a columnas
+            const columnas = encabezados.map((_, colIndex) => 
+                filas.slice(2).map(fila => {
+                    const celda = fila.querySelectorAll('td')[colIndex];
+                    return celda ? celda.textContent.trim() : null;
+                }).filter(valor => valor) // Filtrar celdas vacías
+            );
+            
+            // Generar HTML dinámico
+            let contenidoHTML = '<h2>Bitácora</h2>';
+            columnas.forEach((valoresColumna, colIndex) => {
+                contenidoHTML += `<h3>${encabezados[colIndex]}</h3>`;
+                contenidoHTML += '<ul>';
+                valoresColumna.forEach(valor => {
+                    contenidoHTML += `<li>${valor}</li>`;
+                });
+                contenidoHTML += '</ul>';
             });
             
-            const bitacoraBody = document.querySelector('.bitacora .body');
-            if (bitacoraBody) {
-                bitacoraBody.innerHTML = `
-                    <h2>Bitácora</h2>
-                    ${tituloHTML}
-                    <ul>${listaHTML}</ul>
-                `;
+            // Insertar el contenido generado en #bitacora-data
+            const bitacoraData = document.querySelector('.bitacora-data');
+            if (bitacoraData) {
+                bitacoraData.innerHTML = contenidoHTML;
             }
         }
     } catch (error) {
         console.error('Error al cargar habilidades:', error);
     }
 }
+
 
 // Switch datos/stats
 document.addEventListener('DOMContentLoaded', () => {
