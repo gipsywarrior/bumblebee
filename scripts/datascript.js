@@ -80,31 +80,26 @@ async function cargarDatosBasicos() {
         const documento = new DOMParser().parseFromString(await respuesta.text(), 'text/html');
         const tablas = documento.querySelectorAll('table');
         
-        if (tablas && tablas.length > 1) {
+        if (tablas && tablas.length > 2) {
             const tablaDatosBasicos = tablas[1];
+            const tablaExperiencia = tablas[2];
             
-            // Actualizar stats primero
-            const filaStats = tablaDatosBasicos.querySelectorAll('tr')[1];
-            if (filaStats) {
-                const celdas = filaStats.querySelectorAll('td');
-                const stats = {
-                    'stat-vit': 3,
-                    'stat-en': 4,
-                    'stat-pm': 5,
-                    'stat-vol': 6,
-                    'stat-vel': 7
-                };
+            // Procesar experiencia y galeones
+            const filasExp = Array.from(tablaExperiencia.querySelectorAll('tr')).slice(1);
+            const experiencias = [];
+            const galeones = [];
+            
+            filasExp.forEach(fila => {
+                const celdas = fila.querySelectorAll('td');
+                if (celdas[0] && celdas[0].textContent.trim()) {
+                    experiencias.push(celdas[0].textContent.trim());
+                }
+                if (celdas[1] && celdas[1].textContent.trim()) {
+                    galeones.push(celdas[1].textContent.trim());
+                }
+            });
 
-                Object.entries(stats).forEach(([id, index]) => {
-                    const elemento = document.getElementById(id);
-                    if (elemento && celdas[index]) {
-                        const valor = celdas[index].textContent.trim();
-                        if (valor) elemento.textContent = valor;
-                    }
-                });
-            }
-            
-            // Procesar datos básicos
+            // Procesar datos básicos (filas después de la primera)
             const contenidoHTML = Array.from(tablaDatosBasicos.querySelectorAll('tr'))
                 .slice(1)
                 .map(fila => {
@@ -116,22 +111,46 @@ async function cargarDatosBasicos() {
                 .filter(Boolean)
                 .join('');
 
+            // Añadir spans de experiencia y galeones
+            const expGalHTML = `
+                <span><b>Experiencia:</b> ${experiencias.join(' / ')}</span>
+                <span><b>Galeones:</b> ${galeones.join(' / ')}</span>
+            `;
+
             const dataContainer = document.querySelector('.informacion-basica .data');
             const statsDiv = document.querySelector('.informacion-basica .stats');
             
             if (dataContainer) {
-                // Preservar el div de stats y su estado
                 const isShowingStats = statsDiv && getComputedStyle(statsDiv).display === 'flex';
                 
-                // Mantener el div de stats existente
                 if (statsDiv) {
-                    dataContainer.innerHTML = contenidoHTML;
+                    dataContainer.innerHTML = contenidoHTML + expGalHTML;
                     dataContainer.appendChild(statsDiv);
                 } else {
-                    dataContainer.innerHTML = contenidoHTML;
+                    dataContainer.innerHTML = contenidoHTML + expGalHTML;
                 }
                 
-                // Restaurar el estado de visualización
+                // Actualizar stats
+                const filaStats = tablaDatosBasicos.querySelectorAll('tr')[1];
+                if (filaStats) {
+                    const celdas = filaStats.querySelectorAll('td');
+                    const stats = {
+                        'stat-vit': 3,
+                        'stat-en': 4,
+                        'stat-pm': 5,
+                        'stat-vol': 6,
+                        'stat-vel': 7
+                    };
+
+                    Object.entries(stats).forEach(([id, index]) => {
+                        const elemento = document.getElementById(id);
+                        if (elemento && celdas[index]) {
+                            const valor = celdas[index].textContent.trim();
+                            if (valor) elemento.textContent = valor;
+                        }
+                    });
+                }
+                
                 const spans = dataContainer.querySelectorAll('span:not(.stats)');
                 if (isShowingStats) {
                     if (statsDiv) statsDiv.style.display = 'flex';
