@@ -82,7 +82,31 @@ async function cargarDatosBasicos() {
         
         if (tablas && tablas.length > 1) {
             const tablaDatosBasicos = tablas[1];
+            
+            // Actualizar stats primero
+            const filaStats = tablaDatosBasicos.querySelectorAll('tr')[1];
+            if (filaStats) {
+                const celdas = filaStats.querySelectorAll('td');
+                const stats = {
+                    'stat-vit': 3,
+                    'stat-en': 4,
+                    'stat-pm': 5,
+                    'stat-vol': 6,
+                    'stat-vel': 7
+                };
+
+                Object.entries(stats).forEach(([id, index]) => {
+                    const elemento = document.getElementById(id);
+                    if (elemento && celdas[index]) {
+                        const valor = celdas[index].textContent.trim();
+                        if (valor) elemento.textContent = valor;
+                    }
+                });
+            }
+            
+            // Procesar datos básicos
             const contenidoHTML = Array.from(tablaDatosBasicos.querySelectorAll('tr'))
+                .slice(1)
                 .map(fila => {
                     const celdas = fila.querySelectorAll('td');
                     return Array.from(celdas)
@@ -91,32 +115,27 @@ async function cargarDatosBasicos() {
                 })
                 .filter(Boolean)
                 .join('');
-            
+
             const dataContainer = document.querySelector('.informacion-basica .data');
             const statsDiv = document.querySelector('.informacion-basica .stats');
-            const switchButton = document.querySelector('.switch');
             
             if (dataContainer) {
-                // Guardar el estado actual
+                // Preservar el div de stats y su estado
                 const isShowingStats = statsDiv && getComputedStyle(statsDiv).display === 'flex';
-                const currentButtonText = switchButton ? switchButton.textContent : 'Stats';
                 
-                // Actualizar contenido manteniendo el div de stats
-                const statsContent = statsDiv ? statsDiv.outerHTML : '';
-                dataContainer.innerHTML = contenidoHTML + statsContent;
-                
-                // Restaurar el estado
-                const newStatsDiv = dataContainer.querySelector('.stats');
-                const newDataSpans = dataContainer.querySelectorAll('span:not(.stats)');
-                
-                if (isShowingStats) {
-                    if (newStatsDiv) newStatsDiv.style.display = 'flex';
-                    newDataSpans.forEach(span => span.style.display = 'none');
-                    if (switchButton) switchButton.textContent = 'Datos';
+                // Mantener el div de stats existente
+                if (statsDiv) {
+                    dataContainer.innerHTML = contenidoHTML;
+                    dataContainer.appendChild(statsDiv);
                 } else {
-                    if (newStatsDiv) newStatsDiv.style.display = 'none';
-                    newDataSpans.forEach(span => span.style.display = 'block');
-                    if (switchButton) switchButton.textContent = currentButtonText;
+                    dataContainer.innerHTML = contenidoHTML;
+                }
+                
+                // Restaurar el estado de visualización
+                const spans = dataContainer.querySelectorAll('span:not(.stats)');
+                if (isShowingStats) {
+                    if (statsDiv) statsDiv.style.display = 'flex';
+                    spans.forEach(span => span.style.display = 'none');
                 }
             }
         }
@@ -156,6 +175,4 @@ document.addEventListener('DOMContentLoaded', () => {
 window.onload = () => {
     cargarHistorial();
     cargarDatosBasicos();
-    setInterval(cargarHistorial, 30000);
-    setInterval(cargarDatosBasicos, 30000);
 };
