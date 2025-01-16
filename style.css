@@ -691,6 +691,7 @@ img {
     border: 1px solid var(--white);
     margin-top: -120px;
     transition: 0.3s;
+    pointer-events: none;
 }
 
 .top-hover:hover .chevron {
