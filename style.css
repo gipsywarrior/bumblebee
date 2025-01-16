@@ -655,7 +655,6 @@ img {
 
 .sheet-content a {
     color: #ca8db8;
-    text-decoration: none !important;
     transition: 0.2s;
 }
 
