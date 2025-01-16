@@ -163,6 +163,46 @@ async function cargarDatosBasicos() {
     }
 }
 
+// Función para cargar habilidades
+async function cargarHabilidades() {
+    try {
+        const respuesta = await fetch(`${URL_HOJA}?timestamp=${new Date().getTime()}`);
+        if (!respuesta.ok) throw new Error(`Error HTTP, estado: ${respuesta.status}`);
+        
+        const documento = new DOMParser().parseFromString(await respuesta.text(), 'text/html');
+        const tablas = documento.querySelectorAll('table');
+        
+        if (tablas && tablas.length > 3) {
+            const tablaHabilidades = tablas[3];
+            const filas = tablaHabilidades.querySelectorAll('tr');
+            let tituloHTML = '';
+            let listaHTML = '';
+            
+            filas.forEach((fila, index) => {
+                const celda = fila.querySelector('td');
+                if (celda && celda.textContent.trim()) {
+                    if (index === 1) {
+                        tituloHTML = `<h3>${celda.textContent.trim()}</h3>`;
+                    } else {
+                        listaHTML += `<li>${celda.textContent.trim()}</li>`;
+                    }
+                }
+            });
+            
+            const bitacoraBody = document.querySelector('.bitacora .body');
+            if (bitacoraBody) {
+                bitacoraBody.innerHTML = `
+                    <h2>Bitácora</h2>
+                    ${tituloHTML}
+                    <ul>${listaHTML}</ul>
+                `;
+            }
+        }
+    } catch (error) {
+        console.error('Error al cargar habilidades:', error);
+    }
+}
+
 // Switch datos/stats
 document.addEventListener('DOMContentLoaded', () => {
     const switchButton = document.querySelector('.switch');
@@ -194,4 +234,5 @@ document.addEventListener('DOMContentLoaded', () => {
 window.onload = () => {
     cargarHistorial();
     cargarDatosBasicos();
+    cargarHabilidades();
 };
