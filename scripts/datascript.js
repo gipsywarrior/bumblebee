@@ -13,7 +13,7 @@ function procesarCeldaHistorial(celda, indice, celdas) {
     // Verificar si el contenido de la celda comienza con un "-"
     if (indice === 2 || indice === 3) {
         const valor = contenido.trim();
-        if (!valor.startsWith('-')) {
+        if (!valor.startsWith('-') && !valor.startsWith('+')) {
             contenido = `+${valor}`;
         }
     }
