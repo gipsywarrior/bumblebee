@@ -707,3 +707,7 @@ img {
 .top-hover:hover .chevron {
     margin-top: 35px;
 }
+
+a:-webkit-any-link {
+    text-decoration: none!important;
+}
