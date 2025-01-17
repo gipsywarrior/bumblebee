@@ -49,7 +49,12 @@ function procesarCeldaDatosBasicos(celda, indice) {
 // Cargar historial
 async function cargarHistorial() {
     try {
-        const respuesta = await fetch(`${URL_HOJA}?timestamp=${new Date().getTime()}`);
+        const respuesta = await fetch(`${URL_HOJA}?timestamp=${new Date().getTime()}`, {
+            method: 'GET',
+            headers: {
+                'Cache-Control': 'no-cache'
+            }
+        });
         if (!respuesta.ok) throw new Error(`Error HTTP, estado: ${respuesta.status}`);
         
         const documento = new DOMParser().parseFromString(await respuesta.text(), 'text/html');
@@ -83,7 +88,12 @@ async function cargarHistorial() {
 // Cargar datos básicos
 async function cargarDatosBasicos() {
     try {
-        const respuesta = await fetch(`${URL_HOJA}?timestamp=${new Date().getTime()}`);
+        const respuesta = await fetch(`${URL_HOJA}?timestamp=${new Date().getTime()}`, {
+            method: 'GET',
+            headers: {
+                'Cache-Control': 'no-cache'
+            }
+        });
         if (!respuesta.ok) throw new Error(`Error HTTP, estado: ${respuesta.status}`);
         
         const documento = new DOMParser().parseFromString(await respuesta.text(), 'text/html');
@@ -175,7 +185,12 @@ async function cargarDatosBasicos() {
 // Cargar habilidades
 async function cargarHabilidades() {
     try {
-        const respuesta = await fetch(`${URL_HOJA}?timestamp=${new Date().getTime()}`);
+        const respuesta = await fetch(`${URL_HOJA}?timestamp=${new Date().getTime()}`, {
+            method: 'GET',
+            headers: {
+                'Cache-Control': 'no-cache'
+            }
+        });
         if (!respuesta.ok) throw new Error(`Error HTTP, estado: ${respuesta.status}`);
         
         const documento = new DOMParser().parseFromString(await respuesta.text(), 'text/html');
