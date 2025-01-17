@@ -159,7 +159,7 @@ img {
     pointer-events: none;
 }
 
-.ornaments object {
+.ornaments img {
     position: absolute;
 }
 
@@ -335,7 +335,7 @@ img {
     cursor: pointer;
 }
 
-.button object {
+.button img {
     width: 19px;
     opacity: 0.9;
     transition: 0.3s;
@@ -346,7 +346,7 @@ img {
     background: var(--box1f);
 }
 
-.button:hover object {
+.button:hover img {
     opacity: 1;
 }
 
