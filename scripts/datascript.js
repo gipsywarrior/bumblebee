@@ -157,8 +157,8 @@ async function cargarDatosBasicos() {
                         'stat-vit': 3,
                         'stat-en': 4,
                         'stat-pm': 5,
-                        'stat-vol': 6,
-                        'stat-vel': 7
+                        'stat-vel': 6,
+                        'stat-vol': 7
                     };
 
                     Object.entries(stats).forEach(([id, index]) => {
