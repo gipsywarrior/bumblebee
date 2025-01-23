@@ -1,17 +1,12 @@
 :root {
-    --post-fondo: #5d2a2d;
-    --post-borde: #dccaa5;
-    --post-fuente: #d5c2c2;
-}
-
-.post {
-    background: #0f0f0f;
-    padding-top: 20px;
+    --post-fondo: #0e0e0e;
+    --post-borde: white;
+    --post-fuente: rgb(158, 158, 158);
 }
 
 .post *::selection {
     color: white;
-    background: #47181836;
+    background: #42424236;
 }
 
 .post-container {
@@ -59,11 +54,12 @@
     height: 170px;
     border-radius: 100px;
     border: 1px solid var(--post-borde);
+    background: url(https://i.imgur.com/OoD8GMW.png)
 }
 
 .text-box {
     position: relative;
-    background: #59272a;
+    background: #131313;
     width: 100%;
     overflow: hidden;
     box-shadow: inset 0 0 0 1px var(--post-borde);
@@ -113,6 +109,34 @@
     color: rgb(224, 176, 176);
 }
 
+.text p:last-child {
+    margin-block: 20px;
+    background: #50505025;
+    border: 1px solid #dddddd23;
+    border-radius: 10px;
+    padding: 15px;
+    white-space: pre;
+    color: rgb(218, 218, 218);
+}
+
 .text b {
     font-weight: bold;
+}
+
+.post .ornaments .romboid.right {
+    margin-right: -9px;
+}
+
+.post .ornaments .romboid.left {
+    margin-left: -9px;
+}
+
+.post .sparkle.top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 200px;
+    z-index: 5;
 }
