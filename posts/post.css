@@ -8,6 +8,16 @@
     padding-top: 5px;
 }
 
+.post a {
+    color: var(--post-fuente);
+    text-decoration: none;
+    transition: 0.3s
+}
+
+.post a:hover {
+    color: white;
+}
+
 .post *::selection {
     color: white;
     background: #42424236;
@@ -110,7 +120,7 @@
     border: 1px solid #dddddd23;
     border-radius: 10px;
     padding: 15px;
-    white-space: pre;
+    white-space: pre-wrap;
     color: rgb(218, 218, 218);
 }
 
