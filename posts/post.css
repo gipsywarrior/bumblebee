@@ -1,7 +1,7 @@
 :root {
     --post-fondo: #5d2a2d;
     --post-borde: #dccaa5;
-    --post-fuente: #f1cbcb;
+    --post-fuente: #d5c2c2;
 }
 
 .post {
@@ -94,11 +94,8 @@
 .text-box .text h1 {
     font-family: 'Amarante', serif;
     font-size: 40px;
-    background: linear-gradient(to top, #9e8e6e, #dccaa5, #f5eddd);
+    color: var(--post-borde);
     line-height: 1;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
     text-align: center;
     margin-bottom: 10px
 }
