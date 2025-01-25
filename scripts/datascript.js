@@ -21,6 +21,8 @@ function procesarCeldaHistorial(celda, indice, celdas) {
     if (indice !== 1) contenido = `<span class="bold">${contenido}</span>`;
     if (indice === 2) contenido += `<span class="bold"> EXP</span>`;
     if (indice === 3) contenido += `<span class="bold">G</span>`;
+    if (indice === 4) contenido += `<span class="bold"> CO</span>`;
+    if (indice === 5) contenido += `<span class="bold"> PR</span>`;
     
     const indicesConContenido = Array.from(celdas)
         .map((c, i) => c.textContent.trim() ? i : -1)
