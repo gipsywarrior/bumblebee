@@ -18,6 +18,10 @@
     color: white;
 }
 
+.post i {
+    font-style: oblique;
+}
+
 .post *::selection {
     color: white;
     background: #42424236;
@@ -68,14 +72,6 @@
     height: 170px;
     border-radius: 100px;
     border: 1px solid var(--post-borde);
-}
-
-#pruebadevalentia .img-box {
-    background: url(https://i.imgur.com/OoD8GMW.png);
-}
-
-#moradaserpiente .img-box {
-    background: url(https://i.imgur.com/C5Fc2qd.png);
 }
 
 .text-box {
@@ -151,4 +147,18 @@
     margin: auto;
     margin-top: 200px;
     z-index: 5;
+}
+
+
+/* Imgs */
+#pruebadevalentia .img-box {
+    background: url(https://i.imgur.com/OoD8GMW.png);
+}
+
+#moradaserpiente .img-box {
+    background: url(https://i.imgur.com/C5Fc2qd.png);
+}
+
+#vacaciones .img-box {
+    background: url(https://i.imgur.com/vhZsC8H.png);
 }
