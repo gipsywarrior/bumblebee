@@ -257,3 +257,13 @@
 #torneoduelo1 .img-box {
     background: url(https://i.imgur.com/vW7kTLU.png);
 }
+
+/* Aclaraciones */
+#torneoduelo1 .aclaracion::after {
+    content: " (El uso de las Artes Oscuras no está permitido)";
+    color: #5d5d5d;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 14px;
+}
+
