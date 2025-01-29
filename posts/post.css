@@ -187,12 +187,8 @@
     z-index: 5;
 }
 
-/* temp */
-body {
-    background: #111111;
-}
-
 /* Big post */
+
 .big-post-container {
     width: 720px;
     height: 100%;
