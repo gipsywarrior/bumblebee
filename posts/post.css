@@ -94,17 +94,17 @@
     width: 100%;
     height: 100%;
     padding: 60px 30px 70px 50px;
-    color: var(--post-fuente);
-    font-family: 'Asul', sans-serif;
-    font-size: 15px;
-    line-height: 1.5;
     box-sizing: border-box;
     display: flex;
     flex-flow: column;
     gap: 20px;
+    color: var(--post-fuente);
+    font-family: 'Asul', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
 }
 
-.text-box .text h1 {
+.text-box h1 {
     font-family: 'Amarante', serif;
     font-size: 40px;
     color: var(--post-borde);
@@ -113,9 +113,26 @@
     margin-bottom: 10px
 }
 
+.text-box h2 {
+    font-family: 'Amarante', serif;
+    font-size: 40px;
+    color: var(--post-borde);
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 10px
+}
+
+.text-box ul {
+    list-style-type: disc;
+    padding-left: 50px;
+    color: rgb(223, 223, 223);
+}
+
+
 .text-box .text h1:not(:first-child) {
     margin-top: -30px;
 }
+
 
 .text p:last-child {
     margin-block: 20px;
@@ -126,6 +143,27 @@
     white-space: pre-wrap;
     color: rgb(218, 218, 218);
 }
+
+.text p:last-child i {
+    color: rgb(105, 105, 105);
+}
+
+.text p:last-child i::before {
+    content: "!";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: #00000007;
+    border: 1px solid #ffffff23;
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.4;
+    border-radius: 100%;
+    margin-right: 5px;
+}
+
+
 
 .text b {
     font-weight: bold;
@@ -149,6 +187,63 @@
     z-index: 5;
 }
 
+/* temp */
+body {
+    background: #111111;
+}
+
+/* Big post */
+.big-post-container {
+    width: 720px;
+    height: 100%;
+    padding: 45px;
+    background: #141414;
+    border: 1px solid #1b1b1b;
+}
+
+.big-post-container .content {
+    box-shadow: inset 0 0 0 1px white;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+
+
+.big-post-container .corners .corner {
+    background: #141414;
+    border: 1px solid white;
+}
+
+.big-post-container .content-body {
+    width: 100%;
+    height: 100%;
+    border: 1px solid white;
+    padding: 60px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    gap: 50px;
+}
+
+.big-post-container .img-box {
+    height: 200px;
+    border-radius: 0px;
+    border: 1px solid white;
+}
+
+.big-post-container .text-box {
+    box-sizing: border-box;
+    color: #d1d1d1;
+}
+
+.big-post-container .text-box .text {
+    padding: 50px 40px;
+    font-size: 15px;
+}
+
+.big-post-container .text-box .text p:last-child {
+    margin-block: 5px;
+}
 
 /* Imgs */
 #pruebadevalentia .img-box {
@@ -161,4 +256,8 @@
 
 #vacaciones .img-box {
     background: url(https://i.imgur.com/vhZsC8H.png);
+}
+
+#torneoduelo1 .img-box {
+    background: url(https://i.imgur.com/vW7kTLU.png);
 }
