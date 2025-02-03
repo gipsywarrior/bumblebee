@@ -122,10 +122,25 @@
     margin-bottom: 10px
 }
 
+.text-box h3 {
+    font-weight: bold;
+    color: #ffffffb6;
+    font-size: 17px;
+    text-align: center;
+}
+
 .text-box ul {
-    list-style-type: disc;
     padding-left: 50px;
-    color: rgb(223, 223, 223);
+}
+
+.text-box ul li {
+    margin-bottom: 10px;
+}
+
+.text-box ul li::before {
+    content: '-';
+    position: absolute;
+    margin-left: -20px;
 }
 
 
@@ -239,6 +254,22 @@
 
 .big-post-container .text-box .text p:last-child {
     margin-block: 5px;
+}
+
+/* Torneo de duelo */
+
+.matches {
+    display: flex;
+    flex-flow: column;
+    gap: 20px;
+}
+
+.matches .match {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.336);
+    border: 1px solid rgba(255, 255, 255, 0.103);
+    border-radius: 30px;
+    text-align: center;
 }
 
 /* Imgs */
