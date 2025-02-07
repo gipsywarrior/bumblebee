@@ -261,6 +261,10 @@
     padding-right: 40px;
 }
 
+.big-post-container a {
+    color: lightgrey;
+}
+
 /* Torneo de duelo */
 
 .matches {
