@@ -256,6 +256,11 @@
     margin-block: 5px;
 }
 
+.big-post-container ul .sub {
+    margin-left: 40px;
+    padding-right: 40px;
+}
+
 /* Torneo de duelo */
 
 .matches {
@@ -276,6 +281,10 @@
     text-decoration: none;
     font-weight: bold;
     color: #68ad7a
+}
+
+.match.doble {
+    background: #181818;
 }
 
 /* Imgs */
