@@ -275,8 +275,8 @@
 
 .matches .match {
     padding: 20px;
-    background: rgba(0, 0, 0, 0.336);
-    border: 1px solid rgba(255, 255, 255, 0.103);
+    background: #00000056;
+    border: 1px solid #ffffff1a;
     border-radius: 30px;
     text-align: center;
 }
@@ -289,6 +289,78 @@
 
 .match.doble {
     background: #181818;
+}
+
+.llaves {
+    display: flex;
+    flex-flow: column;
+    gap: 10px
+}
+
+.llaves .matchbox {
+    display: flex;
+    flex-flow: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center
+}
+
+.llaves .matchbox .match {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.llaves .matchbox .cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: stretch;
+    background: #00000056;
+    border: 1px solid #ffffff1a;
+    border-radius: 30px;
+    text-align: center;
+    min-width: 50px;
+    padding: 10px;
+    text-align: center;
+}
+
+.llaves .matchbox.medio {
+    gap: 30px
+}
+
+.llaves .matchbox.medio .match:not(:nth-child(2)) {
+    flex-flow: column
+}
+
+.llaves span {
+    display: block;
+    width: 30px;
+    height: 1px;
+    background: rgb(61, 61, 61);
+}
+
+.llaves .matchbox.medio .match:not(:nth-child(2)) span {
+    width: 1px;
+    height: 10px
+}
+
+.llaves {
+    .cont.gold, .cont.silver,.cont.bronze {
+        background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%), radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+        border: 1px solid #ffffff33;
+        color: #362504d0}
+}
+
+.llaves .cont.silver {
+    filter: grayscale();
+    color: #00000098;
+}
+
+.llaves .cont.bronze {
+    filter: hue-rotate(-17deg) brightness(0.8);
+    color: rgba(0, 0, 0, 0.829);
+    border: 1px solid rgba(255, 255, 255, 0.281);
 }
 
 /* Imgs */
