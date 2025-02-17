@@ -363,6 +363,10 @@
     border: 1px solid rgba(255, 255, 255, 0.281);
 }
 
+.finales .big-post-container {
+    width: 100%!important
+}
+
 /* Imgs */
 #pruebadevalentia .img-box {
     background: url(https://i.imgur.com/OoD8GMW.png);
