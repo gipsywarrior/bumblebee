@@ -94,6 +94,10 @@
     background: var(--portada);
 }
 
+.miembro:nth-child(1) {
+    background: url(https://i.imgur.com/TsKhk1f.png);
+}
+
 .informacion {
     background: var(--informacion);
     border: 1px solid var(--claro);
