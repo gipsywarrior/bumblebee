@@ -126,21 +126,28 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const miembros = document.querySelectorAll('.miembro');
+            let tag;
 
             miembros.forEach(miembro => {
                 miembro.addEventListener('mouseover', function(event) {
-                    const tag = document.createElement('div');
-                    tag.className = 'tag';
-                    tag.style.position = 'absolute';
-                    tag.style.pointerEvents = 'none'; // Para que no interfiera con el mouse
-                    document.body.appendChild(tag);
 
+                    if (!tag) {
+                        tag = document.createElement('div');
+                        tag.className = 'tag';
+                        tag.style.position = 'absolute';
+                        tag.style.pointerEvents = 'none';
+                        document.body.appendChild(tag);
+                    }
+
+                    // Actualizar el contenido del tag
                     switch (miembro.id) {
                         case 'deviant':
                             tag.textContent = 'Artemis Elderwood';
+                            tag.innerHTML += '<br><i>Líder</i>';
                             break;
                         case 'cayden':
                             tag.textContent = 'Clive Morgan';
+                            tag.innerHTML += '<br><i>Sublider</i>';
                             break;
                         case 'mikaboshi':
                             tag.textContent = 'Percival Howland';
@@ -177,14 +184,15 @@
                     }
 
                     const updateTagPosition = (e) => {
-                        tag.style.left = e.pageX + 10 + 'px'; // Desplazado a la derecha
-                        tag.style.top = e.pageY + 10 + 'px'; // Desplazado hacia abajo
+                        tag.style.left = e.pageX + 20 + 'px';
+                        tag.style.top = e.pageY + 20 + 'px';
                     };
 
                     document.addEventListener('mousemove', updateTagPosition);
 
                     miembro.addEventListener('mouseleave', function() {
                         document.body.removeChild(tag);
+                        tag = null;
                         document.removeEventListener('mousemove', updateTagPosition);
                     });
                 });

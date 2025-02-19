@@ -154,11 +154,17 @@
 }
 
 .tag {
+    width: fit-content;
     font-family: Amarante;
     color: #bd8f8f;
     text-transform: uppercase;
-    transform: translate(6px, 6px);
+    font-weight: normal!important;
 }
+
+.tag i {
+    font-size: 13px;
+}
+
 
 #deviant {
     background: url(https://i.imgur.com/2KFcZWH.png);
