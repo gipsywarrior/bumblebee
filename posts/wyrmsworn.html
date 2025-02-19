@@ -29,18 +29,18 @@
                 <h2>Miembros</h2>
                 <div class="miembros-box">
                     <div class="miembros-slide" id="miembros-slide">
-                        <div class="miembro"></div>
-                        <div class="miembro"></div>
-                        <div class="miembro"></div>
-                        <div class="miembro"></div>
-                        <div class="miembro"></div>
-                        <div class="miembro"></div>
-                        <div class="miembro"></div>
-                        <div class="miembro"></div>
-                        <div class="miembro"></div>
-                        <div class="miembro"></div>
-                        <div class="miembro"></div>
-                        <div class="miembro"></div>
+                        <a href="https://mwwrpg.forumcommunity.net/?t=63213134" class="miembro" id="deviant" target="_blank"></a>
+                        <a href="https://mwwrpg.forumcommunity.net/?t=63203068" class="miembro" id="cayden" target="_blank"></a>
+                        <a href="https://mwwrpg.forumcommunity.net/?t=63203913" class="miembro" id="mikaboshi" target="_blank"></a>
+                        <a href="https://mwwrpg.forumcommunity.net/?t=63206470" class="miembro" id="castellan" target="_blank"></a>
+                        <a href="https://mwwrpg.forumcommunity.net/?t=63202817" class="miembro" id="unforgiven" target="_blank"></a>
+                        <a href="https://mwwrpg.forumcommunity.net/?t=63204776" class="miembro" id="saiyuki" target="_blank"></a>
+                        <a href="https://mwwrpg.forumcommunity.net/?t=63202820" class="miembro" id="kanto" target="_blank"></a>
+                        <a href="https://mwwrpg.forumcommunity.net/?t=63204828" class="miembro" id="seaweed" target="_blank"></a>
+                        <a href="https://mwwrpg.forumcommunity.net/?t=63203076" class="miembro" id="zelda" target="_blank"></a>
+                        <a href="https://mwwrpg.forumcommunity.net/?t=63202746" class="miembro" id="goaway" target="_blank"></a>
+                        <a href="https://mwwrpg.forumcommunity.net/?t=63203169" class="miembro" id="majestrix" target="_blank"></a>
+                        <a href="https://mwwrpg.forumcommunity.net/?t=63202749" class="miembro" id="kazahana" target="_blank"></a>
                     </div>
                 </div>
             </div>
@@ -65,5 +65,73 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const miembros = document.querySelectorAll('.miembro');
+
+            miembros.forEach(miembro => {
+                miembro.addEventListener('mouseover', function(event) {
+                    const tag = document.createElement('div');
+                    tag.className = 'tag';
+                    tag.style.position = 'absolute';
+                    tag.style.pointerEvents = 'none'; // Para que no interfiera con el mouse
+                    document.body.appendChild(tag);
+
+                    switch (miembro.id) {
+                        case 'deviant':
+                            tag.textContent = 'Artemis Elderwood';
+                            break;
+                        case 'cayden':
+                            tag.textContent = 'Clive Morgan';
+                            break;
+                        case 'mikaboshi':
+                            tag.textContent = 'Percival Howland';
+                            break;
+                        case 'castellan':
+                            tag.textContent = 'Arthur Langley';
+                            break;
+                        case 'unforgiven':
+                            tag.textContent = 'Isobel Tokugawa';
+                            break;
+                        case 'saiyuki':
+                            tag.textContent = 'Selene Howland';
+                            break;
+                        case 'kanto':
+                            tag.textContent = 'Magnus Egor';
+                            break;
+                        case 'seaweed':
+                            tag.textContent = 'Percy Pevenland';
+                            break;
+                        case 'zelda':
+                            tag.textContent = 'Ylva Vox';
+                            break;
+                        case 'goaway':
+                            tag.textContent = 'Cassie Tonks';
+                            break;
+                        case 'majestrix':
+                            tag.textContent = 'Winona Tonks';
+                            break;
+                        case 'kazahana':
+                            tag.textContent = 'Megara Tonks';
+                            break;
+                        default:
+                            tag.textContent = '';
+                    }
+
+                    const updateTagPosition = (e) => {
+                        tag.style.left = e.pageX + 10 + 'px'; // Desplazado a la derecha
+                        tag.style.top = e.pageY + 10 + 'px'; // Desplazado hacia abajo
+                    };
+
+                    document.addEventListener('mousemove', updateTagPosition);
+
+                    miembro.addEventListener('mouseleave', function() {
+                        document.body.removeChild(tag);
+                        document.removeEventListener('mousemove', updateTagPosition);
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>

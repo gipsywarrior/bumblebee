@@ -86,16 +86,79 @@
 }
 
 .miembro {
-    min-width: 140px;
+    width: 140px;
     height: 195px;
     border: 1px solid var(--claro);
     border-radius: 19px;
     display: flex;
     background: var(--portada);
+    background-size: 100%!important;
+    background-position: center!important;
+    transition: 0.3s;
 }
 
-.miembro:nth-child(1) {
-    background: url(https://i.imgur.com/TsKhk1f.png);
+/* .miembro:hover {
+    width: 200px;
+    margin-inline: -10px;
+}
+
+.miembro:first-child:hover {
+    margin-left: -30px;
+} */
+
+.tag {
+    font-family: Amarante;
+    color: #bd8f8f;
+    text-transform: uppercase;
+    transform: translate(6px, 6px);
+}
+
+#deviant {
+    background: url(https://i.imgur.com/2KFcZWH.png);
+}
+
+#cayden {
+    background: url(https://i.imgur.com/1Ar42Mg.png);
+}
+
+#mikaboshi {
+    background: url(https://i.imgur.com/luJJGfy.png);
+}
+
+#castellan {
+    background: url(https://i.imgur.com/lEKiAsu.png);
+}
+
+#unforgiven {
+    background: url(https://i.imgur.com/YrBRNt6.png);
+}
+
+#saiyuki {
+    background: url(https://i.imgur.com/dSvDpSo.png);
+}
+
+#kanto {
+    background: url(https://i.imgur.com/QkeAILs.png);
+}
+
+#seaweed {
+    background: url(https://i.imgur.com/t7n28PZ.png);
+}
+
+#zelda {
+    background: url(https://i.imgur.com/PAzREwn.png);
+}
+
+#goaway {
+    background: url(https://i.imgur.com/4sPHkuM.png);
+}
+
+#majestrix {
+    background: url(https://i.imgur.com/4jvj7lz.png);
+}
+
+#kazahana {
+    background: url(https://i.imgur.com/sZ41bbQ.png);
 }
 
 .informacion {
