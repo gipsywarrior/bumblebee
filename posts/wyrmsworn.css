@@ -19,6 +19,10 @@
 }
 
 .wyrmsworn {
+    overflow: hidden
+}
+
+.wyrmsworn {
 
 .col {
     flex: 0 0 50%;
