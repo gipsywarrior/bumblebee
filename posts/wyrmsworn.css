@@ -85,7 +85,7 @@
     display: flex;
     width: max-content;
     gap: 30px;
-    padding-inline: 35px 120px;
+    padding-inline: 115px;
     padding-block: 5px 30px;
 }
 
@@ -121,7 +121,7 @@
     padding: 15px;
     padding-bottom: 20px;
     box-sizing: border-box;
-    font-size: 13px;
+    font-size: 14px;
     opacity: 0;
     transition: 0.5s;
     text-align: justify;
@@ -140,6 +140,10 @@
 
 .miembro .desc:hover {
     margin-top: -1px;
+}
+
+.miembro:first-child.inhover {
+    margin-left: -40px;
 }
 
 .miembro.inhover {
