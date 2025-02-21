@@ -261,7 +261,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url(https://i.imgur.com/5Sej4Ck.png);
+    background: var(--miembros);
     border: 1px solid var(--claro);
     border-top-left-radius: 1000px;
     border-top-right-radius: 1000px;
